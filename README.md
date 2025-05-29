@@ -60,6 +60,10 @@ GitHub License .NET 8.0 SQLite/In-memory DB
 ## 📈 Диаграммы
 
 ### 1. 🔄 Диаграмма последовательностей (Покупка скина)
+
+![Uploading image.png…]()
+
+
 ```plantuml
 @startuml
 actor Покупатель
@@ -81,6 +85,9 @@ UI --> Покупатель: Уведомление о результате
 ```
 
 ### 2. 🎯 Диаграмма вариантов использования
+
+![image](https://github.com/user-attachments/assets/e4a0fc2c-6000-4972-a618-2d953e0c9f9b)
+
 ```plantuml
 @startuml
 left to right direction
@@ -105,6 +112,9 @@ rectangle Система {
 ```
 
 ### 3. 🧱 Диаграмма классов
+
+![image](https://github.com/user-attachments/assets/682fb850-909c-493b-b7e4-07c7282be948)
+
 ```plantuml
 @startuml
 class User {
