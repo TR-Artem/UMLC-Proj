@@ -1,0 +1,79 @@
+using SkinTradingApp.Core.Exceptions;
+using SkinTradingApp.Core.Models;
+using SkinTradingApp.DataAccess.Interfaces;
+using SkinTradingApp.BusinessLogic.Interfaces;
+using SkinTradingApp.BusinessLogic.Validators;
+
+namespace SkinTradingApp.BusinessLogic.Services
+{
+    public class TradingService : ITradingService
+    {
+        private readonly IUserRepository _userRepository;
+        private readonly ISkinRepository _skinRepository;
+        private readonly SkinValidator _skinValidator;
+
+        public TradingService(IUserRepository userRepository, ISkinRepository skinRepository)
+        {
+            _userRepository = userRepository;
+            _skinRepository = skinRepository;
+            _skinValidator = new SkinValidator();
+        }
+
+        public Transaction BuySkin(int buyerId, int sellerId, int skinId)
+        {
+            var buyer = _userRepository.GetById(buyerId);
+            var seller = _userRepository.GetById(sellerId);
+            var skin = _skinRepository.GetById(skinId);
+
+            ValidateTransaction(buyer, seller, skin);
+
+            // Применяем комиссию
+            var totalAmount = skin.Price + CalculateCommission(skin.Price);
+
+            if (buyer.Balance < totalAmount)
+                throw new InsufficientFundsException("Недостаточно средств для покупки");
+
+            // Выполняем транзакцию
+            buyer.Balance -= totalAmount;
+            seller.Balance += skin.Price; // Продавец получает без комиссии
+
+            var transaction = new Transaction
+            {
+                Buyer = buyer,
+                Seller = seller,
+                Skin = skin,
+                Amount = skin.Price,
+                Status = TransactionStatus.Completed,
+                Date = DateTime.UtcNow
+            };
+
+            _userRepository.Update(buyer);
+            _userRepository.Update(seller);
+            _skinRepository.TransferSkin(skinId, buyerId);
+
+            return transaction;
+        }
+
+        private void ValidateTransaction(User buyer, User seller, Skin skin)
+        {
+            if (buyer == null || seller == null)
+                throw new ArgumentNullException("Покупатель или продавец не найден");
+
+            if (skin == null)
+                throw new SkinNotFoundException("Скин не найден");
+
+            if (skin.OwnerId != seller.Id)
+                throw new InvalidOperationException("У продавца нет этого скина");
+
+            _skinValidator.Validate(skin);
+        }
+
+        public decimal CalculateCommission(decimal amount)
+        {
+            // Комиссия 10% от суммы
+            return amount * 0.1m;
+        }
+
+        // Другие методы...
+    }
+}
