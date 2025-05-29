@@ -1,0 +1,20 @@
+using SkinTradingApp.Core.Models;
+using System;
+
+namespace SkinTradingApp.BusinessLogic.Validators
+{
+    public class SkinValidator
+    {
+        public void Validate(Skin skin)
+        {
+            if (skin == null)
+                throw new ArgumentNullException(nameof(skin));
+
+            if (string.IsNullOrWhiteSpace(skin.Name))
+                throw new ArgumentException("Название скина не может быть пустым");
+
+            if (skin.Price <= 0)
+                throw new ArgumentException("Цена скина должна быть положительной");
+        }
+    }
+}
