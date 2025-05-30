@@ -61,7 +61,7 @@ GitHub License .NET 8.0 SQLite/In-memory DB
 
 ### 1. 🔄 Диаграмма последовательностей (Покупка скина)
 
-![Uploading image.png…]()
+![image](https://github.com/user-attachments/assets/aea34931-7b14-44ed-a4ca-94fbcf2ee41f)
 
 
 ```plantuml
@@ -207,6 +207,33 @@ dotnet run
    - Все транзакции выполняются в рамках одной атомарной операции
    - Проверка баланса перед сделкой
    - Валидация входных данных
+
+
+
+Итог выполнения Программы: 
+
+![image](https://github.com/user-attachments/assets/0aab539c-2e6c-440a-902c-3b4c5da74dc9)
+
+![image](https://github.com/user-attachments/assets/596a17b7-3545-4b16-a05f-ad223174378a)
+
+![image](https://github.com/user-attachments/assets/6fa5bd6c-b293-4b66-9919-a5171a895ada)
+
+![image](https://github.com/user-attachments/assets/556218f4-b515-4b6b-b6b7-07991f86214b)
+
+![image](https://github.com/user-attachments/assets/6634f812-2bc2-4ef8-84a5-4d0591bcbdc4)
+
+![image](https://github.com/user-attachments/assets/8d044e40-2463-4d32-836b-682068e091d9)
+
+![image](https://github.com/user-attachments/assets/0846d2c5-51f7-4aaf-b68e-b07649f5aff9)
+
+![Uploading image.png…]()
+
+
+
+
+
+
+
 
 
 
