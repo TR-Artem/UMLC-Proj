@@ -210,8 +210,8 @@ dotnet run
 
 
 Итог выполнения Программы: 
-![image](https://github.com/user-attachments/assets/68f3b96e-99e9-4bd6-9bfd-b1b6498b5c30)
 
+![image](https://github.com/user-attachments/assets/68f3b96e-99e9-4bd6-9bfd-b1b6498b5c30)
 
 ![image](https://github.com/user-attachments/assets/0aab539c-2e6c-440a-902c-3b4c5da74dc9)
 
@@ -227,7 +227,7 @@ dotnet run
 
 ![image](https://github.com/user-attachments/assets/0846d2c5-51f7-4aaf-b68e-b07649f5aff9)
 
-![Uploading image.png…]()
+![image](https://github.com/user-attachments/assets/7c800d4e-3ed9-4766-ad15-7616bea31217)
 
 
 
