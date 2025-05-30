@@ -61,7 +61,6 @@ GitHub License .NET 8.0 SQLite/In-memory DB
 
 ### 1. 🔄 Диаграмма последовательностей (Покупка скина)
 
-![image](https://github.com/user-attachments/assets/aea34931-7b14-44ed-a4ca-94fbcf2ee41f)
 
 
 ```plantuml
@@ -211,6 +210,8 @@ dotnet run
 
 
 Итог выполнения Программы: 
+![image](https://github.com/user-attachments/assets/68f3b96e-99e9-4bd6-9bfd-b1b6498b5c30)
+
 
 ![image](https://github.com/user-attachments/assets/0aab539c-2e6c-440a-902c-3b4c5da74dc9)
 
